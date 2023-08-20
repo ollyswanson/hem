@@ -1,3 +1,4 @@
+-- TODO: Most of these aren't needed anymore, I can migrate to the builtins
 local M = {}
 
 function M.add(value, str, sep)

@@ -1,5 +1,3 @@
-local M = {}
-
 local opts = {
   tools = { -- rust-tools options
     autoSetHints = true,
@@ -43,8 +41,7 @@ local opts = {
   },
 }
 
-M.setup = function()
-  require("rust-tools").setup(opts)
-end
-
-return M
+return {
+  "simrat39/rust-tools.nvim",
+  opts = opts
+}

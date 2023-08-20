@@ -150,37 +150,6 @@ function M.dap_mappings(bufnr)
   })
 end
 
-function M.gitsigns_mappings()
-  wk({
-    ["<leader>h"] = {
-      name = "gitsigns",
-      ["s"] = { '<cmd>lua require"gitsigns".stage_hunk()<CR>', "stage hunk" },
-      ["u"] = { '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>', "undo stage hunk" },
-      ["r"] = { '<cmd>lua require"gitsigns".reset_hunk()<CR>', "reset hunk" },
-      ["R"] = { '<cmd>lua require"gitsigns".reset_buffer()<CR>', "reset buffer" },
-      ["p"] = { '<cmd>lua require"gitsigns".preview_hunk()<CR>', "preview hunk" },
-      ["b"] = { '<cmd>lua require"gitsigns".blame_line({full = true})<CR>', "blame line" },
-      ["S"] = { '<cmd>lua require"gitsigns".stage_buffer()<CR>', "stage buffer" },
-      ["U"] = { '<cmd>lua require"gitsigns".reset_buffer_index()<CR>', "reset buffer index" },
-    },
-  })
-  wk({
-    ["<leader>h"] = {
-      name = "gitsigns",
-      ["s"] = {
-        '<cmd>lua require"gitsigns".stage_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
-        "stage hunk",
-      },
-      ["r"] = {
-        '<cmd>lua require"gitsigns".reset_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
-        "reset hunk",
-      },
-    },
-  }, {
-    mode = "v",
-  })
-end
-
 function M.rust_mappings(bufnr)
   wk({
     ["<leader>r"] = {
