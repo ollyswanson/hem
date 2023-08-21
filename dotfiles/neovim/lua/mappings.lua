@@ -150,35 +150,6 @@ function M.dap_mappings(bufnr)
   })
 end
 
-function M.rust_mappings(bufnr)
-  wk({
-    ["<leader>r"] = {
-      name = "rust",
-      r = { "<cmd> RustRunnables<CR>", "runnables" },
-      j = { "<cmd> RustJoinLines<CR>", "join lines" },
-      m = { "<cmd> RustExpandMacro<CR>", "expand macro" },
-      c = { "<cmd> RustOpenCargo<CR>", "cargo" },
-      p = { "<cmd> RustParentModule<CR>", "parent module" },
-      u = { "<cmd> RustMoveItemUp<CR>", "item up" },
-      d = { "<cmd> RustMoveItemDown<CR>", "item down" },
-      b = { "<cmd> RustDebuggables<CR>", "debuggables" },
-      a = { "<cmd> RustHoverActions<CR>", "hover actions" },
-    },
-  }, {
-    buffer = bufnr,
-  })
-
-  wk({
-    ["<leader>r"] = {
-      name = "rust",
-      a = { "<cmd> RustHoverRange<CR>", "hover range" },
-    },
-  }, {
-    mode = "v",
-    buffer = bufnr,
-  })
-end
-
 function M.c_mappings(bufnr)
   wk({
     ["<leader>c"] = {
