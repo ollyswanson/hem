@@ -24,4 +24,18 @@
     arguments = [ "--max-columns-preview" "--max-columns=150" ];
   };
 
+  programs.fish = {
+    enable = true;
+    plugins = [
+      {
+        name = "nightfox";
+        src = ../dotfiles/fish/conf.d/nightfox.fish;
+      }
+      {
+        name = "fzf_key_bindings";
+        src = ../dotfiles/fish/conf.d/fzf_key_bindings;
+      }
+    ];
+    shellInit = builtins.readFile ../dotfiles/fish/config.fish;
+  };
 }
