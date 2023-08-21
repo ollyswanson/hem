@@ -36,16 +36,19 @@ end
 status.on_attach = function(client)
   nvim_status.on_attach(client)
 
-  vim.api.nvim_create_autocmd('CursorHold,BufEnter', {
-    -- TODO: Review where the augroup should be made
-    group = vim.api.nvim_create_augroup('og_lsp_status', { clear = true }),
-    desc = 'LSP Status',
-    pattern = '*',
-    callback = function()
-      require("lsp-status").update_current_function()
-      nvim_status.update_current_function()
-    end
-  })
+  -- TODO: I'm not using this anywhere, so commenting out for now
+  -- vim.api.nvim_create_autocmd('CursorHold,BufEnter', {
+  --   -- TODO: Review where the augroup should be made
+  --   group = vim.api.nvim_create_augroup('og_lsp_status', { clear = true }),
+  --   desc = 'LSP Status',
+  --   pattern = '*',
+  --   callback = function()
+  --     if client.server_capabilities.documentSymbolProvider then
+  --       require("lsp-status").update_current_function()
+  --       nvim_status.update_current_function()
+  --     end
+  --   end
+  -- })
 end
 
 -- Used by language servers such as rust-analyzer to report progress when indexing project.
