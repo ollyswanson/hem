@@ -60,5 +60,25 @@ return {
       v = { "j", "k" },
       n = { "y", "c", "d" },
     },
-  }
+  },
+  config = function(_, opts)
+    local wk = require("which-key")
+
+    -- Register all prefix names here. It doesn't seem to work when done with plugins :/
+    wk.setup(opts)
+    wk.register({
+      d = { name = "+diagnostics" },
+      g = { name = "+goto" },
+      ["<leader>f"] = { name = "+find" },
+      ["<leader>g"] = { name = "+git" },
+      ["<leader>h"] = { name = "+hunk" },
+      ["<leader>l"] = { name = "+grep +lsp" },
+      ["<leader>n"] = { name = "+tree" },
+      ["<leader>q"] = { name = "+quit" },
+      ["<leader>r"] = { name = "+rename +rust" },
+      ["<leader>t"] = { name = "+telescope" },
+      ["<leader>w"] = { name = "+workspace" },
+      ["<leader>x"] = { name = "+trouble" },
+    })
+  end
 }

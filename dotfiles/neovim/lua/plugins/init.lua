@@ -41,8 +41,6 @@ return {
   "tpope/vim-surround",
   "tpope/vim-fugitive",
   "tpope/vim-rhubarb",
-  -- TODO: Relics from that horrible Java experiment
-  "mfussenegger/nvim-dap",
   {
     "lukas-reineke/indent-blankline.nvim",
     config = function()

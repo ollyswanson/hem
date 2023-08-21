@@ -1,7 +1,5 @@
 local rust_on_attach = function(_, bufnr)
-  local wk = require("which-key").register
   local rt = require("rust-tools")
-  wk({ ["<leader>r"] = { name = "+rust" } })
 
   local map = vim.keymap.set
 
@@ -65,6 +63,5 @@ local opts = {
 return
 {
   "simrat39/rust-tools.nvim",
-  dependencies = { "folke/which-key.nvim" },
   opts = opts
 }

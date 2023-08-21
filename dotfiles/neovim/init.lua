@@ -15,8 +15,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins")
-require("settings")
-require("mappings").define_mappings()
+require("config")
 require("lsp").setup()
 
 vim.api.nvim_create_autocmd('BufWritePre', {

@@ -7,3 +7,12 @@ return {
     }
   }
 }
+
+-- function M.c_mappings(bufnr)
+--   wk({
+--     ["<leader>c"] = {
+--       name = "c",
+--       h = { "<cmd> ClangdSwitchSourceHeader<CR>", "switch header" },
+--     }
+--   })
+-- end
