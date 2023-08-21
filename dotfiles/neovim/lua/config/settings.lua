@@ -1,106 +1,87 @@
-local opt = require("utils").opt
-local create_augroups = require("utils").nvim_create_augroups
+local opt = vim.opt
 
 -- use Bash
-opt("o", "shell", "/bin/bash")
+opt.shell = "/bin/bash"
 
 -- encoding
-opt("o", "encoding", "utf-8")
+opt.encoding = "utf-8"
 
 -- proper colours
-opt("o", "termguicolors", true)
+opt.termguicolors = true
 
 -- default update time is 4000ms = 4s, prefer shorter
-opt("o", "updatetime", 200)
+opt.updatetime = 200
 
 -- mouse (for when I need to show people code)
-opt("o", "mouse", "a")
+opt.mouse = { a = true }
 
 -- use system clipboard
-opt("o", "clipboard", "unnamedplus")
+opt.clipboard = "unnamedplus"
+
 
 -- searching
-opt("o", "ignorecase", true)
-opt("o", "smartcase", true)
+opt.ignorecase = true
+opt.smartcase = true
 
 -- undo file
 if vim.fn.has("linux") then
-  opt("o", "undodir", vim.env.HOME .. "/.vim/undodir")
+  opt.undodir = vim.env.HOME .. "/.vim/undodir"
 else
-  opt("o", "undodir", "/Users/" .. vim.env.USER .. "/.vim/undodir")
+  opt.undodir = "/Users/" .. vim.env.USER .. "/.vim/undodir"
 end
+opt.undofile = true
 
-opt("b", "undofile", true)
-
--- swap file
-opt("b", "swapfile", false)
+opt.swapfile = false
 
 -- nice tabs
 local indent = 4
-opt("b", "expandtab", true)
-opt("b", "shiftwidth", indent)
-opt("b", "smartindent", true)
-opt("b", "tabstop", indent)
-opt("b", "softtabstop", indent)
-opt("o", "shiftround", true)
+opt.expandtab = true
+opt.shiftwidth = indent
+opt.smartindent = true
+opt.tabstop = indent
+opt.softtabstop = indent
+opt.shiftround = true
 
 -- stop autocompletion on every key press
-opt("o", "completeopt", "menuone,noinsert,noselect")
+opt.completeopt = { "menuone", "noinsert", "noselect" }
 
 -- allow background buffers
-opt("o", "hidden", true)
+opt.hidden = true
 
 -- nicer joins
-opt("o", "joinspaces", false)
+opt.joinspaces = false
 
 -- line numbers
-opt("w", "number", true)
-opt("w", "relativenumber", true)
-opt("w", "signcolumn", "yes")
+opt.number = true
+opt.relativenumber = true
+opt.signcolumn = "yes"
 
 -- cursor line highlighting
-opt("w", "cursorline", true)
+opt.cursorline = true
 
 -- line wrap.
-opt("w", "wrap", false)
+opt.wrap = false
 
 -- window splits
-opt("o", "splitbelow", true)
-opt("o", "splitright", true)
+opt.splitbelow = true
+opt.splitright = true
 
 -- space for displaying messages
-opt("o", "cmdheight", 1)
+opt.cmdheight = 1
 
 -- Don't need to see which mode I'm in
-opt("o", "showmode", false)
+opt.showmode = false
 
 -- start scrolling window when we reach given offset
-opt("o", "scrolloff", 6)
+opt.scrolloff = 6
 
-vim.wo.list = true
-vim.opt.listchars = {
+opt.list = true
+opt.listchars = {
   eol = "↲",
   tab = "» ",
   conceal = "┊",
   nbsp = "␣",
 }
-vim.wo.colorcolumn = "99999"
-
--- find a better place for these
-local file_types =
-"javascript,typescript,javascriptreact,typescriptreact,javascript.jsx,typescript.tsx,lua,yaml,java,c,cpp,nix"
-
-create_augroups({
-  spacing = {
-    { "FileType " .. file_types .. " set shiftwidth=2" },
-    { "FileType " .. file_types .. " set tabstop=2" },
-    { "FileType " .. file_types .. " set tabstop=2" },
-  },
-  text_width = {
-    { "FileType " .. "markdown" .. " setlocal textwidth=100" },
-  }
-})
-
-
+opt.colorcolumn = "99999"
 
 vim.g.c_syntax_for_h = 1
