@@ -6,6 +6,7 @@
 
     packages = with pkgs; [
       neovim
+      fd
     ];
   };
 
@@ -17,5 +18,10 @@
   };
 
   programs.home-manager.enable = true;
+
+  programs.ripgrep = {
+    enable = true;
+    arguments = [ "--max-columns-preview" "--max-columns=150" ];
+  };
 
 }
