@@ -91,7 +91,7 @@ return {
       map("n", "<leader>gc", builtin.git_commits, { desc = "commits" })
       map("n", "<leader>gj", builtin.git_bcommits, { desc = "bcommits" })
       map("n", "<leader>gs", builtin.git_status, { desc = "status" })
-      map("n", "<leader>gs", "<cmd> Git<CR>", { desc = "fugitive" })
+      map("n", "<leader>gg", "<cmd> Git<CR>", { desc = "fugitive" })
     end,
 
   }
