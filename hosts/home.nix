@@ -8,6 +8,11 @@
       neovim
       fd
     ];
+
+    sessionPath = [ "${config.home.homeDirectory}/.cargo/bin" ];
+    sessionVariables = {
+      EDITOR = "nvim";
+    };
   };
 
   xdg.configFile.nvim = {
