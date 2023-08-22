@@ -43,4 +43,7 @@
     ];
     shellInit = builtins.readFile ../dotfiles/fish/config.fish;
   };
+
+  programs.starship = import ../programs/starship.nix;
+
 }

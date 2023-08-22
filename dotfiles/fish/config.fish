@@ -51,6 +51,3 @@ if test -z (pgrep gpg-agent)
 end
 
 setenv GPG_TTY (tty)
-
-
-starship init fish | source
