@@ -45,5 +45,4 @@
   };
 
   programs.starship = import ../programs/starship.nix;
-
 }

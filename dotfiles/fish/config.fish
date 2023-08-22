@@ -45,9 +45,3 @@ setenv LESS_TERMCAP_us \e'[04;38;5;146m' # begin underline
 if type -p pyenv
     pyenv init - | source
 end
-
-if test -z (pgrep gpg-agent)
-    eval (gpg-agent --daemon --write-env-file ~/.gnupg/.gpg-agent-info)
-end
-
-setenv GPG_TTY (tty)

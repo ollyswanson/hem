@@ -4,3 +4,5 @@ function proj
 end
 
 setenv TILT_HOST '0.0.0.0'
+
+set GPG_TTY (tty) 

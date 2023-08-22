@@ -1,10 +1,29 @@
 { config, pkgs, ... }:
 
 {
-  home.username = "swansono";
-  home.homeDirectory = "/Users/swansono";
+  home = {
+    username = "swansono";
+    homeDirectory = "/Users/swansono";
 
-  programs.fish = {
-    shellInit = builtins.readFile ./patches/config.fish;
+    packages = with pkgs; [
+      pinentry
+    ];
+
+    file."${config.home.homeDirectory}/.gnupg/gpg-agent.conf".text = ''
+      pinentry-program ${config.home.homeDirectory}/.nix-profile/bin/pinentry
+      default-cache-ttl 43200
+      max-cache-ttl 86400
+    '';
+  };
+
+  programs = {
+    fish = {
+      shellInit = builtins.readFile ./patches/config.fish;
+    };
+
+    gpg = {
+      enable = true;
+    };
+
   };
 }

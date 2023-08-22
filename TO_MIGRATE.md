@@ -11,7 +11,7 @@
 - [ ] exa
 - [ ] fzf
 - [ ] git-delta
-- [ ] gnupg
+- [x] gnupg
 - [ ] jq
 - [ ] k6
 - [ ] kind
@@ -24,12 +24,12 @@
 - [ ] msgpack
 - [ ] netcat
 - [ ] nvm
-- [ ] pinentry-mac
+- [x] pinentry-mac
 - [ ] poetry
 - [ ] postgresql@14
 - [ ] pyenv
 - [ ] socat
-- [ ] starship
+- [x] starship
 - [ ] stow
 - [ ] tealdeer
 - [ ] tilt

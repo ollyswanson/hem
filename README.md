@@ -20,8 +20,8 @@ $ home-manager switch --flake .#$HOST
 
 # TODOs
 - [ ] Git config
-- [ ] gpg-agent
-- [ ] git-crypt?
+- [x] gpg-agent
+- [x] git-crypt: Not a good idea, need to find an alternative.
 - [ ] Bat configuration
 - [ ] Review nerdtree plugin for Neovim (is there a better option?)
 - [ ] Lots of shell aliases
