@@ -17,3 +17,14 @@ $ ./result/activate
 $ nix flake update
 $ home-manager switch --flake .#$HOST
 ```
+
+# TODOs
+- [ ] Git config
+- [ ] gpg-agent
+- [ ] git-crypt?
+- [ ] Bat configuration
+- [ ] Review nerdtree plugin for Neovim (is there a better option?)
+- [ ] Lots of shell aliases
+- [ ] Fzf plugin for fish (the `git rev-parse` integration looks really useful)
+- [ ] Git integration with neovim.
+- [ ] [List of packages that need to be migrated](./TO_MIGRATE.md)
