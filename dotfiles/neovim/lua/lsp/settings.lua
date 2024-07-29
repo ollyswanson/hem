@@ -5,9 +5,9 @@ olsp = {
   diagnostics = {
     signs = {
       { name = "DiagnosticSignError", text = "" },
-      { name = "DiagnosticSignWarn",  text = "" },
-      { name = "DiagnosticSignHint",  text = "" },
-      { name = "DiagnosticSignInfo",  text = "" },
+      { name = "DiagnosticSignWarn", text = "" },
+      { name = "DiagnosticSignHint", text = "" },
+      { name = "DiagnosticSignInfo", text = "" },
     },
   },
   completion = {
@@ -94,7 +94,7 @@ olsp = {
         settings = {},
         -- client, bufnr
         lang_on_attach = function(client, _)
-          client.server_capabilities.document_formatting = false
+          -- client.server_capabilities.document_formatting = false
         end
       }
     },

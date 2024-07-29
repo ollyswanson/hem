@@ -73,8 +73,8 @@ function M.make_on_attach(lang_on_attach)
     map("n", "<leader>xw", "<cmd> Trouble workspace_diagnostice<CR>", { buffer = bufnr, desc = "workspace" })
     map("n", "<leader>xd", "<cmd> Trouble document_diagnostics<CR>", { buffer = bufnr, desc = "workspace" })
 
-    if client.server_capabilites.documentFormattingProvider then
-      map("n", "<leader>ff", vim.lsp.buf.formatting, { buffer = bufnr, desc = "formatting" })
+    if client.supports_method("documentFormattingProvider") then
+      map("n", "<leader>ff", vim.lsp.buf.format, { buffer = bufnr, desc = "formatting" })
     end
 
     require("lsp.status").on_attach(client)

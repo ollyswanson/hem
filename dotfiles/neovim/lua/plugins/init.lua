@@ -41,12 +41,7 @@ return {
   "tpope/vim-surround",
   "tpope/vim-fugitive",
   "tpope/vim-rhubarb",
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    config = function()
-      require("indent_blankline").setup({ buftype_exclude = { "terminal" }, show_end_of_line = true })
-    end,
-  },
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
   -- use {
   --   'TimUntersberger/neogit',
   --   dependencies = {'sindrets/diffview.nvim'},

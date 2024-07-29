@@ -43,10 +43,10 @@ function M.setup()
   vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, float)
   vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
     signs = {
-      severity_limit = "Error",
+      min = "Error",
     },
     underline = {
-      severity_limit = "Warning",
+      min = "Warning",
     },
     virtual_text = true,
     update_in_insert = true,
