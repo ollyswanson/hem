@@ -5,4 +5,4 @@ end
 
 setenv TILT_HOST '0.0.0.0'
 
-set GPG_TTY (tty) 
+setenv GPG_TTY (tty) 

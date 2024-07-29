@@ -6,11 +6,11 @@
     homeDirectory = "/Users/swansono";
 
     packages = with pkgs; [
-      pinentry
+      pinentry-tty
     ];
 
     file."${config.home.homeDirectory}/.gnupg/gpg-agent.conf".text = ''
-      pinentry-program ${config.home.homeDirectory}/.nix-profile/bin/pinentry
+      pinentry-program ${config.home.homeDirectory}/.nix-profile/bin/pinentry-tty
       default-cache-ttl 43200
       max-cache-ttl 86400
     '';
