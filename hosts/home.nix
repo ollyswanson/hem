@@ -1,4 +1,5 @@
 { config, pkgs, ... }:
+let hem = config.hem; in
 
 {
   home = {
@@ -39,13 +40,13 @@
         name = "nightfox";
         src = ../dotfiles/fish/conf.d/nightfox.fish;
       }
-      {
-        name = "fzf_key_bindings";
-        src = ../dotfiles/fish/conf.d/fzf_key_bindings;
-      }
     ];
     shellInit = builtins.readFile ../dotfiles/fish/config.fish;
   };
 
   programs.starship = import ../programs/starship.nix;
+
+  imports = [../home-manager];
+
+  hem.fzf.enable = true;
 }
