@@ -3,12 +3,6 @@ return {
   dependencies = {
     "nvim-treesitter/nvim-treesitter-refactor",
     "windwp/nvim-ts-autotag",
-    {
-      "nvim-treesitter/completion-treesitter",
-      build = function()
-        vim.cmd([[TSUpdate]])
-      end,
-    },
     "nvim-treesitter/nvim-treesitter-textobjects",
   },
   config = function()

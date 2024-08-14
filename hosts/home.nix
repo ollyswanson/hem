@@ -7,7 +7,6 @@ let hem = config.hem; in
     homeDirectory = "/home/swansono";
 
     packages = with pkgs; [
-      neovim
       fd
       git-crypt
     ];
@@ -17,13 +16,6 @@ let hem = config.hem; in
       EDITOR = "nvim";
     };
     stateVersion = "24.05";
-  };
-
-  xdg.configFile.nvim = {
-    # Caution, this is an absolute path :(
-    # The absolute path is required because relative paths are relative to the nix store AND we
-    # don't want to have to invoke `home-manager switch` every time we update the neovim config.
-    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/hem/dotfiles/neovim";
   };
 
   programs.home-manager.enable = true;
@@ -49,4 +41,5 @@ let hem = config.hem; in
   imports = [../home-manager];
 
   hem.fzf.enable = true;
+  hem.neovim.enable = true;
 }
