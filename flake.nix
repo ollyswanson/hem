@@ -24,12 +24,17 @@
         inherit nixpkgs home-manager;
         inherit hosts;
       };
+
+      secrets = builtins.fromJSON (builtins.readFile ./secrets/secrets.json);
     in
     {
       homeConfigurations = {
         orbstack = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.aarch64-linux;
           modules = [ ./hosts/home.nix ];
+          extraSpecialArgs = {
+            inherit secrets;
+          };
         };
       };
       nixosConfigurations = {

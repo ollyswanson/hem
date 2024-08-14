@@ -1,4 +1,8 @@
 { ... }:
 {
-  imports = [./modules/fzf.nix ./modules/neovim.nix];
+  imports = [
+    ./modules/fzf.nix
+    ./modules/git.nix
+    ./modules/neovim.nix
+  ];
 }

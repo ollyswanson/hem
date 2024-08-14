@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, secrets, ... }:
 let hem = config.hem; in
 
 {
@@ -42,4 +42,7 @@ let hem = config.hem; in
 
   hem.fzf.enable = true;
   hem.neovim.enable = true;
+  hem.git.enable = true;
+  programs.git.userEmail = secrets.work.email;
+  programs.git.userName = secrets.work.name;
 }
