@@ -9,13 +9,16 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs =
+    { nixpkgs, home-manager, ... }@inputs:
     let
-      hosts = [{
-        host = "work";
-        system = "aarch64-darwin";
-        user = "swansono";
-      }];
+      hosts = [
+        {
+          host = "work";
+          system = "aarch64-darwin";
+          user = "swansono";
+        }
+      ];
 
       inherits = {
         inherit nixpkgs home-manager;
@@ -23,8 +26,19 @@
       };
     in
     {
-
-      homeConfigurations = import ./hosts inherits;
+      homeConfigurations = {
+        orbstack = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.aarch64-linux;
+          modules = [ ./hosts/home.nix ];
+        };
+      };
+      nixosConfigurations = {
+        orbstack = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit inputs;
+          };
+          modules = [ ./hosts/orbstack/configuration.nix ];
+        };
+      };
     };
 }
-

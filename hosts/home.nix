@@ -2,17 +2,20 @@
 
 {
   home = {
-    stateVersion = "23.05";
+    username = "swansono";
+    homeDirectory = "/home/swansono";
 
     packages = with pkgs; [
       neovim
       fd
+      git-crypt
     ];
 
     sessionPath = [ "${config.home.homeDirectory}/.cargo/bin" ];
     sessionVariables = {
       EDITOR = "nvim";
     };
+    stateVersion = "24.05";
   };
 
   xdg.configFile.nvim = {
