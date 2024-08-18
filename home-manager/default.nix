@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./modules/fish.nix
     ./modules/fzf.nix
     ./modules/git.nix
     ./modules/neovim.nix

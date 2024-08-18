@@ -24,17 +24,7 @@ in
 
   programs.home-manager.enable = true;
 
-  programs.fish = {
-    enable = true;
-    plugins = [
-      {
-        name = "nightfox";
-        src = ../dotfiles/fish/conf.d/nightfox.fish;
-      }
-    ];
-    shellInit = builtins.readFile ../dotfiles/fish/config.fish;
-  };
-
+  hem.fish.enable = true;
   hem.fzf.enable = true;
   hem.neovim.enable = true;
   hem.ripgrep.enable = true;
