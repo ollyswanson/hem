@@ -12,9 +12,6 @@ in
   home = {
     username = "swansono";
     homeDirectory = "/home/swansono";
-
-    packages = with pkgs; [ fd ];
-
     sessionPath = [ "${config.home.homeDirectory}/.cargo/bin" ];
     sessionVariables = {
       EDITOR = "nvim";
@@ -24,6 +21,7 @@ in
 
   programs.home-manager.enable = true;
 
+  hem.fd.enable = true;
   hem.fish.enable = true;
   hem.fzf.enable = true;
   hem.neovim.enable = true;

@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./modules/fd.nix
     ./modules/fish.nix
     ./modules/fzf.nix
     ./modules/git.nix
