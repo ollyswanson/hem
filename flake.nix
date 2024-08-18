@@ -19,7 +19,13 @@
     {
       homeConfigurations = {
         orbstack = lib.mkHome "aarch64-linux" {
-          modules = [ ./hosts/home.nix ];
+          modules = [ ./hosts/orbstack/home.nix ];
+          extraSpecialArgs = {
+            inherit secrets;
+          };
+        };
+        work = lib.mkHome "aarch64-darwin" {
+          modules = [ ./hosts/work/home.nix ];
           extraSpecialArgs = {
             inherit secrets;
           };

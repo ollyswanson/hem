@@ -1,27 +1,32 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  secrets,
+  ...
+}:
 
 {
   home = {
     username = "swansono";
     homeDirectory = "/Users/swansono";
-
-    packages = with pkgs; [ pinentry-tty ];
-
-    file."${config.home.homeDirectory}/.gnupg/gpg-agent.conf".text = ''
-      pinentry-program ${config.home.homeDirectory}/.nix-profile/bin/pinentry-tty
-      default-cache-ttl 43200
-      max-cache-ttl 86400
-    '';
+    sessionPath = [ "${config.home.homeDirectory}/.cargo/bin" ];
+    sessionVariables = {
+      EDITOR = "nvim";
+    };
+    stateVersion = "23.05";
   };
 
-  programs = {
-    fish = {
-      shellInit = builtins.readFile ./patches/config.fish;
-    };
+  programs.home-manager.enable = true;
+  programs.fish.shellInit = builtins.readFile ./patches/config.fish;
 
-    gpg = {
-      enable = true;
-    };
-
-  };
+  hem.fd.enable = true;
+  hem.fish.enable = true;
+  hem.fzf.enable = true;
+  hem.neovim.enable = true;
+  hem.ripgrep.enable = true;
+  hem.starship.enable = true;
+  hem.git.enable = true;
+  hem.git.commitSigning.ssh.pubKey = "~/.ssh/github.pub";
+  programs.git.userEmail = secrets.work.email;
+  programs.git.userName = secrets.work.name;
 }
