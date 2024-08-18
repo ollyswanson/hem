@@ -87,5 +87,7 @@ in
           handlers cfg.commitSigning
         )
       ]);
+
+      home.packages = mkIf cfg.enable (with pkgs; [ git-crypt ]);
     };
 }

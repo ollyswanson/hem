@@ -13,10 +13,7 @@ in
     username = "swansono";
     homeDirectory = "/home/swansono";
 
-    packages = with pkgs; [
-      fd
-      git-crypt
-    ];
+    packages = with pkgs; [ fd ];
 
     sessionPath = [ "${config.home.homeDirectory}/.cargo/bin" ];
     sessionVariables = {
