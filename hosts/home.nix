@@ -1,5 +1,12 @@
-{ config, pkgs, secrets, ... }:
-let hem = config.hem; in
+{
+  config,
+  pkgs,
+  secrets,
+  ...
+}:
+let
+  hem = config.hem;
+in
 
 {
   home = {
@@ -22,7 +29,10 @@ let hem = config.hem; in
 
   programs.ripgrep = {
     enable = true;
-    arguments = [ "--max-columns-preview" "--max-columns=150" ];
+    arguments = [
+      "--max-columns-preview"
+      "--max-columns=150"
+    ];
   };
 
   programs.fish = {
@@ -38,7 +48,7 @@ let hem = config.hem; in
 
   programs.starship = import ../programs/starship.nix;
 
-  imports = [../home-manager];
+  imports = [ ../home-manager ];
 
   hem.fzf.enable = true;
   hem.neovim.enable = true;

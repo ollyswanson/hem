@@ -1,6 +1,11 @@
-{ lib, config, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 
-let 
+let
   cfg = config.hem.neovim;
 in
 {
@@ -14,9 +19,7 @@ in
   };
 
   config = {
-    home.packages = with pkgs; [
-      neovim
-    ];
+    home.packages = with pkgs; [ neovim ];
 
     xdg.configFile.nvim = {
       # Caution, this is an absolute path :(

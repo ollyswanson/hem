@@ -26,6 +26,14 @@
       };
 
       secrets = builtins.fromJSON (builtins.readFile ./secrets/secrets.json);
+      eachSystem =
+        f:
+        nixpkgs.lib.genAttrs [
+          "x86_64-linux"
+          "aarch64-linux"
+          "x86_64-darwin"
+          "aarch64-darwin"
+        ] f;
     in
     {
       homeConfigurations = {
@@ -45,5 +53,6 @@
           modules = [ ./hosts/orbstack/configuration.nix ];
         };
       };
+      formatter = eachSystem (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
     };
 }

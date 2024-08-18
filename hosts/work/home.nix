@@ -5,9 +5,7 @@
     username = "swansono";
     homeDirectory = "/Users/swansono";
 
-    packages = with pkgs; [
-      pinentry-tty
-    ];
+    packages = with pkgs; [ pinentry-tty ];
 
     file."${config.home.homeDirectory}/.gnupg/gpg-agent.conf".text = ''
       pinentry-program ${config.home.homeDirectory}/.nix-profile/bin/pinentry-tty
