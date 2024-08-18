@@ -24,14 +24,6 @@ in
 
   programs.home-manager.enable = true;
 
-  programs.ripgrep = {
-    enable = true;
-    arguments = [
-      "--max-columns-preview"
-      "--max-columns=150"
-    ];
-  };
-
   programs.fish = {
     enable = true;
     plugins = [
@@ -45,6 +37,7 @@ in
 
   hem.fzf.enable = true;
   hem.neovim.enable = true;
+  hem.ripgrep.enable = true;
   hem.starship.enable = true;
   hem.git.enable = true;
   hem.git.commitSigning.ssh.pubKey = "~/.ssh/github.pub";
