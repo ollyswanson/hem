@@ -12,39 +12,20 @@
   outputs =
     { nixpkgs, home-manager, ... }@inputs:
     let
-      hosts = [
-        {
-          host = "work";
-          system = "aarch64-darwin";
-          user = "swansono";
-        }
-      ];
-
-      inherits = {
-        inherit nixpkgs home-manager;
-        inherit hosts;
-      };
+      lib = import ./lib { inherit inputs; };
 
       secrets = builtins.fromJSON (builtins.readFile ./secrets/secrets.json);
-      eachSystem =
-        f:
-        nixpkgs.lib.genAttrs [
-          "x86_64-linux"
-          "aarch64-linux"
-          "x86_64-darwin"
-          "aarch64-darwin"
-        ] f;
     in
     {
       homeConfigurations = {
-        orbstack = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.aarch64-linux;
+        orbstack = lib.mkHome "aarch64-linux" {
           modules = [ ./hosts/home.nix ];
           extraSpecialArgs = {
             inherit secrets;
           };
         };
       };
+
       nixosConfigurations = {
         orbstack = nixpkgs.lib.nixosSystem {
           specialArgs = {
@@ -53,6 +34,8 @@
           modules = [ ./hosts/orbstack/configuration.nix ];
         };
       };
-      formatter = eachSystem (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
+
+      formatter = lib.eachSystem (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
+      homeManagerModules.default = ./home-manager;
     };
 }

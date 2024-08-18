@@ -48,8 +48,6 @@ in
 
   programs.starship = import ../programs/starship.nix;
 
-  imports = [ ../home-manager ];
-
   hem.fzf.enable = true;
   hem.neovim.enable = true;
   hem.git.enable = true;
