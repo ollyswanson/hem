@@ -43,10 +43,9 @@ in
     shellInit = builtins.readFile ../dotfiles/fish/config.fish;
   };
 
-  programs.starship = import ../programs/starship.nix;
-
   hem.fzf.enable = true;
   hem.neovim.enable = true;
+  hem.starship.enable = true;
   hem.git.enable = true;
   hem.git.commitSigning.ssh.pubKey = "~/.ssh/github.pub";
   programs.git.userEmail = secrets.work.email;
