@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./modules/direnv.nix
     ./modules/fd.nix
     ./modules/fish.nix
     ./modules/fzf.nix

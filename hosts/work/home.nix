@@ -19,6 +19,7 @@
   programs.home-manager.enable = true;
   programs.fish.shellInit = builtins.readFile ./patches/config.fish;
 
+  hem.direnv.enable = true;
   hem.fd.enable = true;
   hem.fish.enable = true;
   hem.fzf.enable = true;
