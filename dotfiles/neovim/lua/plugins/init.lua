@@ -26,14 +26,6 @@ return {
       })
     end
   },
-  {
-    "williamboman/mason-lspconfig.nvim",
-    config = function()
-      require("mason-lspconfig").setup({
-        ensure_installed = {},
-      })
-    end
-  },
   -- TODO: Deprecated
   "jose-elias-alvarez/null-ls.nvim",
   -- TODO: Why am I using this? Lol
