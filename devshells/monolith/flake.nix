@@ -12,7 +12,7 @@
         let
           pkgs = nixpkgs.legacyPackages.${system};
 
-          nativeBuildInputs = with pkgs; [ python39 poetry pyright libffi ];
+          nativeBuildInputs = with pkgs; [ python39 poetry pyright libffi ruff ];
         in
         {
           devShells.default = pkgs.mkShell {
