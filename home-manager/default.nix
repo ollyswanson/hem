@@ -9,5 +9,6 @@
     ./modules/neovim.nix
     ./modules/ripgrep.nix
     ./modules/starship.nix
+    ./modules/zed.nix
   ];
 }
