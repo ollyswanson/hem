@@ -45,12 +45,12 @@ let
   #     a = { b = 6; d = [ 5 7 ]; }; e = 10;
   #   }
   # =>
-  #   { 
-  #     a = { b = 6; c = 10; d = [ 5 6 7 ]; }; e = 10; 
+  #   {
+  #     a = { b = 6; c = 10; d = [ 5 6 7 ]; }; e = 10;
   #   }
   # ```
-  #  The idea is to provide a way to recursively combine attrSets, similarly to 
-  # `recursiveUpdate`[1] with the difference being that when we encounter 
+  #  The idea is to provide a way to recursively combine attrSets, similarly to
+  # `recursiveUpdate`[1] with the difference being that when we encounter
   # `isList lhs && `isList rhs`, instead of simply taking rhs we merge the lists.
   #
   # We _do not_ attempt to merge attrSets in the list that we encounter as doing so is not only

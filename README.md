@@ -13,7 +13,7 @@ $ ./result/activate
 ```
 
 ### Updating
-``` 
+```
 $ nix flake update
 $ home-manager switch --flake .#$HOST
 ```

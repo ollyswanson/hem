@@ -37,5 +37,33 @@
     "version": "2"
   },
   "show_inline_completions": false,
-  "load_direnv": "shell_hook"
+  "load_direnv": "shell_hook",
+  "git": {
+    // Control whether the git gutter is shown. May take 2 values:
+    // 1. Show the gutter
+    //      "git_gutter": "tracked_files"
+    // 2. Hide the gutter
+    //      "git_gutter": "hide"
+    "git_gutter": "tracked_files",
+    // Control whether the git blame information is shown inline,
+    // in the currently focused line.
+    "inline_blame": {
+      "enabled": false,
+      "show_commit_summary": true
+    }
+  },
+  "languages": {
+    "Nix": {
+      "language_servers": ["nixd", "!nil"]
+    }
+  },
+  "lsp": {
+    "yaml-language-server": {
+      "settings": {
+        "schemas": {
+          "kubernetes": ["kubernetes*.yaml", "deployment*.yaml"]
+        }
+      }
+    }
+  }
 }
