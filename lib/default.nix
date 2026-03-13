@@ -24,6 +24,10 @@ let
 
   pkgsFor = system: nixpkgs.legacyPackages.${system};
 
+  # Builds a home-manager configuration for a given system. Merges the shared
+  # module base (`homeManagerModules.default`) with the host-specific config,
+  # and injects `hemLib` via `extraSpecialArgs` so `home-manager/default.nix`
+  # can access the `extendModules` helpers.
   mkHome =
     sys: hostConfig:
     home-manager.lib.homeManagerConfiguration (
