@@ -10,8 +10,6 @@ let
 in
 {
   options.hem.neovim = {
-    enable = lib.mkEnableOption "neovim";
-
     symlink = lib.mkOption {
       type = lib.types.path;
       default = "${config.home.homeDirectory}/hem/dotfiles/neovim";

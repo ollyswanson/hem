@@ -1,17 +1,21 @@
-{ ... }:
 {
-  imports = [
-    ./modules/direnv.nix
-    ./modules/fd.nix
-    ./modules/fish.nix
-    ./modules/fzf.nix
-    ./modules/git.nix
-    ./modules/jira.nix
-    ./modules/jujutsu.nix
-    ./modules/neovim.nix
-    ./modules/nixd.nix
-    ./modules/ripgrep.nix
-    ./modules/starship.nix
-    ./modules/zed.nix
-  ];
+  lib,
+  config,
+  hemLib,
+  ...
+}:
+
+let
+  cfg = config.hem;
+
+  modules = hemLib.extendModules (name: {
+    extraOptions = {
+      hem.${name}.enable = lib.mkEnableOption "enable ${name} configuration";
+    };
+
+    configExtension = config: (lib.mkIf cfg.${name}.enable config);
+  }) (hemLib.filesIn ./modules);
+in
+{
+  imports = modules;
 }
