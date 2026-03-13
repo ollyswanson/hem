@@ -4,9 +4,6 @@
   secrets,
   ...
 }:
-let
-  hem = config.hem;
-in
 
 {
   home = {
@@ -29,6 +26,6 @@ in
   hem.starship.enable = true;
   hem.git.enable = true;
   hem.git.commitSigning.ssh.pubKey = "~/.ssh/github.pub";
-  programs.git.userEmail = secrets.work.email;
-  programs.git.userName = secrets.work.name;
+  programs.git.settings.user.email = secrets.work.email;
+  programs.git.settings.user.name = secrets.work.name;
 }
