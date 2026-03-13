@@ -10,33 +10,43 @@
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Nordfox"
+    "dark": "Nordfox - opaque",
+  },
+  "calls": {
+    "mute_on_join": true,
   },
   "ui_font_size": 13,
   "buffer_font_size": 13,
   "buffer_font_family": "IosevkaTerm NF",
   "tab_bar": {
-    "show": true
+    "show": true,
   },
   "scrollbar": {
-    "show": "never"
+    "show": "never",
   },
   "centered_layout": {
     "left_padding": 0.15,
-    "right_padding": 0.15
+    "right_padding": 0.15,
+  },
+  "diagnostics": {
+    "include_warnings": true,
+    "inline": {
+      "enabled": true,
+    },
   },
   "use_system_path_prompts": false,
-  "relative_line_numbers": true,
+  "relative_line_numbers": "enabled",
   "cursor_blink": false,
   "vim_mode": true,
-  "assistant": {
+  "agent": {
+    "profiles": {},
+    "default_profile": "ask",
     "default_model": {
       "provider": "copilot_chat",
-      "model": "claude-3-5-sonnet"
+      "model": "claude-sonnet-4",
     },
-    "version": "2"
   },
-  "show_inline_completions": false,
+  "show_edit_predictions": false,
   "load_direnv": "shell_hook",
   "git": {
     // Control whether the git gutter is shown. May take 2 values:
@@ -49,21 +59,41 @@
     // in the currently focused line.
     "inline_blame": {
       "enabled": false,
-      "show_commit_summary": true
-    }
+      "show_commit_summary": true,
+    },
   },
   "languages": {
+    "Rust": {
+      "tab_size": 4,
+    },
     "Nix": {
-      "language_servers": ["nixd", "!nil"]
-    }
+      "language_servers": ["nixd", "!nil"],
+    },
+    "Git Commit": {
+      "wrap_guides": [50, 72],
+    },
   },
   "lsp": {
     "yaml-language-server": {
       "settings": {
         "schemas": {
-          "kubernetes": ["kubernetes*.yaml", "deployment*.yaml"]
-        }
-      }
-    }
-  }
+          "kubernetes": [
+            "kubernetes*.yaml",
+            "deployment*.yaml",
+            "service*.yaml",
+            "service*.yml",
+          ],
+          "dependabot": ["dependabot.yml"],
+        },
+        "yaml": {
+          "customTags": [
+            "!rust mapping",
+            "!cargo-repository mapping",
+            "!docker mapping",
+            "!docker-repository mapping",
+          ],
+        },
+      },
+    },
+  },
 }
