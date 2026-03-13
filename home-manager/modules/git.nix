@@ -67,15 +67,15 @@ in
         {
           git = {
             enable = true;
-            delta.enable = true;
           };
+          delta.enable = true;
         }
         (
           let
             ssh =
               { pubKey }:
               {
-                git.extraConfig = {
+                git.settings = {
                   gpg.format = "ssh";
                   user.signingkey = pubKey;
                   commit.gpgsign = "true";
