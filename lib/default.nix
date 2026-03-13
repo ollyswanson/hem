@@ -122,7 +122,11 @@ let
 
   filesIn =
     dir:
-    map (fname: dir + "/${fname}") (builtins.attrNames (builtins.readDir dir));
+    let
+      entries = builtins.attrNames (builtins.readDir dir);
+      nixFiles = builtins.filter (nixpkgs.lib.hasSuffix ".nix") entries;
+    in
+    map (fname: dir + "/${fname}") nixFiles;
 
   fileNameOf =
     path:
