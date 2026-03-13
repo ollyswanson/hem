@@ -17,7 +17,15 @@
   };
 
   programs.home-manager.enable = true;
-  programs.fish.shellInit = builtins.readFile ./patches/config.fish;
+
+  programs.fish.functions.proj = ''
+    cd $HOME/passfort/MiniFort/projects
+    cd (fd --type directory --follow | fzf)
+  '';
+  programs.fish.shellInit = ''
+    setenv TILT_HOST '0.0.0.0'
+    setenv GPG_TTY (tty)
+  '';
 
   hem.direnv.enable = true;
   hem.fd.enable = true;
