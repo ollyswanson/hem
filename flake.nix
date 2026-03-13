@@ -41,6 +41,12 @@
         };
       };
 
+      devShells = lib.eachSystem (system: {
+        default = nixpkgs.legacyPackages.${system}.mkShell {
+          packages = [ nixpkgs.legacyPackages.${system}.lua-language-server ];
+        };
+      });
+
       formatter = lib.eachSystem (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
       homeManagerModules.default = ./home-manager;
     };
