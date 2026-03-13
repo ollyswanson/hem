@@ -24,11 +24,7 @@ opt.ignorecase = true
 opt.smartcase = true
 
 -- undo file
-if vim.fn.has("linux") then
-  opt.undodir = vim.env.HOME .. "/.vim/undodir"
-else
-  opt.undodir = "/Users/" .. vim.env.USER .. "/.vim/undodir"
-end
+opt.undodir = vim.fn.expand("~/.vim/undodir")
 opt.undofile = true
 
 opt.swapfile = false
@@ -44,9 +40,6 @@ opt.shiftround = true
 
 -- stop autocompletion on every key press
 opt.completeopt = { "menuone", "noinsert", "noselect" }
-
--- allow background buffers
-opt.hidden = true
 
 -- nicer joins
 opt.joinspaces = false
@@ -82,6 +75,5 @@ opt.listchars = {
   conceal = "┊",
   nbsp = "␣",
 }
-opt.colorcolumn = "99999"
 
 vim.g.c_syntax_for_h = 1

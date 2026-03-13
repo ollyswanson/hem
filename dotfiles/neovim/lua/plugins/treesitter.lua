@@ -19,7 +19,8 @@ return {
       incremental_selection = { enable = true },
       refactor = {
         highlight_definitions = { enable = true },
-        smart_rename = { enable = true, keymaps = { smart_rename = "grr" } },
+        -- Intentionally omitting smart_rename: nvim 0.11 maps `grr` to LSP references by default.
+        -- LSP rename is on `<leader>rn` instead.
       },
       textobjects = {
         select = {

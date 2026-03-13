@@ -40,8 +40,8 @@ local setup = function()
   ins_left({
     function()
       local msg = "No Active Lsp"
-      local buf_ft = vim.api.nvim_buf_get_option(0, "filetype")
-      local clients = vim.lsp.get_active_clients()
+      local buf_ft = vim.api.nvim_get_option_value("filetype", { buf = 0 })
+      local clients = vim.lsp.get_clients()
       if next(clients) == nil then
         return msg
       end
@@ -53,7 +53,7 @@ local setup = function()
       end
       return msg
     end,
-    icon = " LSP:",
+    icon = " LSP:",
     padding = { left = 1 },
   })
 
@@ -69,13 +69,14 @@ local setup = function()
   })
 
   ins_left({
-    require("lsp.status").progress_message,
+    vim.lsp.status,
     padding = { left = 1 },
   })
 
   ins_right({
     "diff",
-    symbols = { added = " ", modified = "柳", removed = " " },
+
+    symbols = { added = " ", modified = " ", removed = " " },
     colored = true,
     cond = conditions.hide_in_width,
     padding = { right = 1 },
@@ -91,6 +92,6 @@ end
 return
 {
   "nvim-lualine/lualine.nvim",
-  dependencies = { "kyazdani42/nvim-web-devicons", "nvim-lua/lsp-status.nvim" },
+  dependencies = { "kyazdani42/nvim-web-devicons" },
   config = setup
 }

@@ -49,6 +49,9 @@ return
     local map = vim.keymap.set
     local gs = require("gitsigns")
 
+    map("n", "]c", function() gs.nav_hunk("next") end, { desc = "next hunk" })
+    map("n", "[c", function() gs.nav_hunk("prev") end, { desc = "prev hunk" })
+
     map("n", "<leader>hs", gs.stage_hunk, { desc = "stage hunk" })
     map("n", "<leader>hu", gs.undo_stage_hunk, { desc = "undo stage hunk" })
     map("n", "<leader>hr", gs.reset_hunk, { desc = "reset hunk" })

@@ -1,1 +1,1 @@
-require("mappings").c_mappings(0)
+vim.opt_local.commentstring = "// %s"

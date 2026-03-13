@@ -22,10 +22,16 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.api.nvim_create_autocmd("BufWritePre", {
   group = vim.api.nvim_create_augroup("formatting", {}),
-  desc = "Format buffer",
+  desc = "Format buffer if LSP with formatting is attached",
   pattern = "*",
   callback = function()
-    vim.lsp.buf.format({ async = false })
+    local clients = vim.lsp.get_clients({ bufnr = 0 })
+    for _, client in ipairs(clients) do
+      if client.supports_method("textDocument/formatting") then
+        vim.lsp.buf.format({ async = false })
+        return
+      end
+    end
   end
 })
 

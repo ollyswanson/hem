@@ -1,7 +1,7 @@
 return
 {
   "nvim-telescope/telescope.nvim",
-  dependencies = { { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } },
+  dependencies = { { "nvim-lua/plenary.nvim" } },
   config = function()
     local telescope = require("telescope")
     local actions = require("telescope.actions")
@@ -63,7 +63,7 @@ return
     local map = vim.keymap.set
 
     map("n", "<C-p>", builtin.find_files, { desc = "find files" })
-    map("n", "<leader>lg", builtin.live_grep, { desc = "live grep" })
+    map("n", "g/", builtin.live_grep, { desc = "live grep" })
     map("n", "<leader>lf", current_buffer_fuzzy_find, { desc = "find in buffer" })
     map("n", "<leader>th", builtin.help_tags, { desc = "help tags" })
     map("n", "<leader>tr", builtin.lsp_references, { desc = "lsp references" })
@@ -81,7 +81,6 @@ return
     map("n", "<leader>gc", builtin.git_commits, { desc = "commits" })
     map("n", "<leader>gj", builtin.git_bcommits, { desc = "bcommits" })
     map("n", "<leader>gs", builtin.git_status, { desc = "status" })
-    map("n", "<leader>gg", "<cmd> Git<CR>", { desc = "fugitive" })
   end,
 
 }

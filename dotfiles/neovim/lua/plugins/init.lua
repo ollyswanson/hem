@@ -9,40 +9,8 @@ return {
     end,
   },
 
-  "neovim/nvim-lspconfig",
-  -- TODO: Might want to use Nix instead
-  {
-    "williamboman/mason.nvim",
-    config = function()
-      require("mason").setup({
-        ui = {
-          check_outdated_servers_on_open = true,
-          icons = {
-            server_installed = "✓",
-            server_pending = "➜",
-            server_uninstalled = "✗",
-          }
-        }
-      })
-    end
-  },
-  -- TODO: Deprecated
-  "jose-elias-alvarez/null-ls.nvim",
-  -- TODO: Why am I using this? Lol
-  "stevearc/dressing.nvim",
   "tpope/vim-surround",
-  "tpope/vim-fugitive",
-  "tpope/vim-rhubarb",
   { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
-  -- use {
-  --   'TimUntersberger/neogit',
-  --   dependencies = {'sindrets/diffview.nvim'},
-  --   config = function()
-  --     vim.defer_fn(function()
-  --       require('neogit').init {integrations = {diffview = true}}
-  --     end, 10)
-  --   end
-  -- }
   "sindrets/diffview.nvim",
   {
     "folke/trouble.nvim",
@@ -52,5 +20,4 @@ return {
     end
   },
   "ellisonleao/glow.nvim",
-
 }
