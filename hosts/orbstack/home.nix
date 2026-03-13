@@ -18,12 +18,16 @@
 
   programs.home-manager.enable = true;
 
+  hem.bat.enable = true;
   hem.fd.enable = true;
   hem.fish.enable = true;
   hem.fzf.enable = true;
+  hem.jq.enable = true;
   hem.neovim.enable = true;
   hem.ripgrep.enable = true;
   hem.starship.enable = true;
+  hem.tealdeer.enable = true;
+  hem.tokei.enable = true;
   hem.git.enable = true;
   hem.git.commitSigning.ssh.pubKey = "~/.ssh/github.pub";
   programs.git.settings.user.email = secrets.work.email;

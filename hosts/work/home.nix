@@ -27,15 +27,19 @@
     setenv GPG_TTY (tty)
   '';
 
+  hem.bat.enable = true;
   hem.direnv.enable = true;
   hem.fd.enable = true;
   hem.fish.enable = true;
   hem.fzf.enable = true;
   hem.jira.enable = true;
+  hem.jq.enable = true;
   hem.neovim.enable = true;
   hem.nixd.enable = true;
   hem.ripgrep.enable = true;
   hem.starship.enable = true;
+  hem.tealdeer.enable = true;
+  hem.tokei.enable = true;
   hem.git.enable = true;
   hem.git.commitSigning.ssh.pubKey = "~/.ssh/github.pub";
   hem.zed.enable = true;
