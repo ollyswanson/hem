@@ -35,6 +35,7 @@
   hem.fzf.enable = true;
   hem.jira.enable = true;
   hem.jq.enable = true;
+  hem.just.enable = true;
   hem.neovim.enable = true;
   hem.nixd.enable = true;
   hem.ripgrep.enable = true;
