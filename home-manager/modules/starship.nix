@@ -1,5 +1,7 @@
-{ ... }:
+{ pkgs, ... }:
 {
+  home.packages = [ pkgs.jj-starship ];
+
   programs.starship = {
     enable = true;
     enableFishIntegration = true;
@@ -9,9 +11,7 @@
         truncation_length = 3;
         truncation_symbol = "…/";
       };
-      aws = {
-        format = ''\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'';
-      };
+      aws.disabled = true;
       bun = {
         format = ''\[[$symbol($version)]($style)\]'';
       };
@@ -57,14 +57,21 @@
       erlang = {
         format = ''\[[$symbol($version)]($style)\]'';
       };
-      gcloud = {
-        format = ''\[[$symbol$account(@$domain)(\($region\))]($style)\]'';
-      };
-      git_branch = {
-        format = ''\[[$symbol$branch]($style)\]'';
-      };
-      git_status = {
-        format = ''([\[$all_status$ahead_behind\]]($style))'';
+      gcloud.disabled = true;
+      # Built-in git modules are replaced by jj-starship, which handles
+      # both jj and pure-git repos with a single optimized binary.
+      # https://github.com/dmmulroy/jj-starship
+      git_branch.disabled = true;
+      git_commit.disabled = true;
+      git_metrics.disabled = true;
+      git_state.disabled = true;
+      git_status.disabled = true;
+
+      custom.jj = {
+        when = "jj-starship detect";
+        shell = [ "jj-starship"  "--jj-symbol" " 󱗆  " ];
+        command = "prompt";
+        format = " $output";
       };
       golang = {
         format = ''\[[$symbol($version)]($style)\]'';
@@ -101,7 +108,7 @@
       };
       memory_usage = {
         format = ''\[$symbol[$ram( | $swap)]($style)\]'';
-      };
+      }; 
       meson = {
         format = ''\[[$symbol$project]($style)\]'';
       };
@@ -109,7 +116,8 @@
         format = ''\[[$symbol($version)]($style)\]'';
       };
       nix_shell = {
-        format = ''\[[$symbol$state( \($name\))]($style)\]'';
+        symbol = "❄️nix";
+        format = ''\[[$symbol]($style)\]'';
       };
       nodejs = {
         format = ''\[[$symbol($version)]($style)\]'';
