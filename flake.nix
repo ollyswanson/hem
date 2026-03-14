@@ -21,20 +21,8 @@
     in
     {
       homeConfigurations = {
-        orbstack = lib.mkHome "aarch64-linux" {
-          modules = [ ./hosts/orbstack/home.nix ];
-        };
         work = lib.mkHome "aarch64-darwin" {
           modules = [ ./hosts/work/home.nix ];
-        };
-      };
-
-      nixosConfigurations = {
-        orbstack = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit inputs;
-          };
-          modules = [ ./hosts/orbstack/configuration.nix ];
         };
       };
 

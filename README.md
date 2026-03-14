@@ -1,7 +1,8 @@
 # hem — Home Environment Manager
 
-Olly's home-manager configuration, managing two hosts (orbstack linux,
-work macOS) via a modular system under the `hem.*` option namespace.
+Olly's home-manager configuration, managing the `work` host
+(aarch64-darwin) via a modular system under the `hem.*` option
+namespace.
 
 ## Installation
 
@@ -83,7 +84,6 @@ home-manager/
   modules/                    # One file per hem.* module (pure config)
 hosts/
   work/home.nix               # macOS host config
-  orbstack/home.nix           # Linux (OrbStack) host config
 dotfiles/                     # Out-of-store config files (neovim, zed, fish themes)
 ```
 
