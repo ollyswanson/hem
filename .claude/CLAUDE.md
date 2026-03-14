@@ -14,8 +14,9 @@ and `orbstack` (aarch64-linux).
   Do not add enable options or `mkIf` guards manually.
 - Enable packages in `hosts/<host>/home.nix` with
   `hem.<name>.enable = true`.
-- After creating a new module file, `git add` it before building — nix
-  won't see untracked files.
+- After creating a new module file, run `jj status` before building —
+  this snapshots the file into the working copy commit, making it
+  visible to nix (which only sees tracked files).
 
 ## Building
 
