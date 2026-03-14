@@ -29,6 +29,7 @@
 
   hem.bat.enable = true;
   hem.direnv.enable = true;
+  hem.eza.enable = true;
   hem.fd.enable = true;
   hem.fish.enable = true;
   hem.fzf.enable = true;
