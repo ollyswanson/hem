@@ -28,6 +28,7 @@
   '';
 
   hem.bat.enable = true;
+  hem.difftastic.enable = true;
   hem.direnv.enable = true;
   hem.eza.enable = true;
   hem.fd.enable = true;
