@@ -7,6 +7,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -14,21 +18,14 @@
     let
       lib = import ./lib { inherit inputs; };
 
-      secrets = builtins.fromJSON (builtins.readFile ./secrets/secrets.json);
     in
     {
       homeConfigurations = {
         orbstack = lib.mkHome "aarch64-linux" {
           modules = [ ./hosts/orbstack/home.nix ];
-          extraSpecialArgs = {
-            inherit secrets;
-          };
         };
         work = lib.mkHome "aarch64-darwin" {
           modules = [ ./hosts/work/home.nix ];
-          extraSpecialArgs = {
-            inherit secrets;
-          };
         };
       };
 

@@ -20,6 +20,57 @@ $ nix flake update
 $ home-manager switch --flake .#$HOST
 ```
 
+## Secrets management
+
+Secrets are managed with [sops-nix](https://github.com/Mic92/sops-nix)
+using [age](https://github.com/FiloSottile/age) encryption. Encrypted
+values live in `secrets/secrets.yaml` — keys are visible but values are
+encrypted. Decryption happens at home-manager activation time, not at
+nix evaluation time.
+
+### Bootstrapping on a new machine
+
+1. Place the age private key at `~/.config/sops/age/keys.txt`
+   (obtain from your backup — never commit this file)
+2. Run `home-manager switch --flake .#$HOST`
+
+sops-nix will decrypt secrets during activation and place them under
+`~/.config/sops-nix/secrets/`.
+
+### Editing secrets
+
+```
+$ nix shell nixpkgs#sops -c sops secrets/secrets.yaml
+```
+
+This decrypts the file into your `$EDITOR`, and re-encrypts on save.
+Never edit the encrypted file directly.
+
+### Adding a new secret
+
+1. Add the key to `secrets/secrets.yaml` via `sops` (as above)
+2. Reference it in the relevant host config:
+   ```nix
+   # Decrypt to a file:
+   sops.secrets.my_secret = { };
+   # Then use the path: config.sops.secrets.my_secret.path
+
+   # Or render into a config file template:
+   sops.templates."my-config".content = ''
+     token = ${config.sops.placeholder.my_secret}
+   '';
+   # Then use the path: config.sops.templates."my-config".path
+   ```
+
+### Key rotation
+
+To add a new age key (e.g. for a new machine), add its public key to
+`.sops.yaml` and re-encrypt:
+
+```
+$ nix shell nixpkgs#sops -c sops updatekeys secrets/secrets.yaml
+```
+
 ## Architecture
 
 ### Directory structure

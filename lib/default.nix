@@ -36,7 +36,10 @@ let
         extraSpecialArgs = {
           inherit hemLib;
         };
-        modules = [ outputs.homeManagerModules.default ];
+        modules = [
+          outputs.homeManagerModules.default
+          inputs.sops-nix.homeManagerModules.sops
+        ];
       } hostConfig
     );
 
