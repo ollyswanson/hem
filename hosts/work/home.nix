@@ -79,4 +79,5 @@
   hem.git.commitSigning.ssh.pubKey = "~/.ssh/github.pub";
   hem.zed.enable = true;
   hem.jujutsu.enable = true;
+  hem.jujutsu.signingKey = "~/.ssh/github.pub";
 }
