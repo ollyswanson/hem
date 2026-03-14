@@ -21,7 +21,7 @@ syn match   jjdescriptionOverflow	".*" contained contains=@Spell
 syn match   jjdescriptionBlank	"^.\+" contained contains=@Spell
 syn match   jjdescriptionFirstLine	"\%^.*" nextgroup=jjdescriptionBlank,jjdescriptionComment skipnl
 
-syn match   jjdescriptionComment "^JJ: .*"
+syn match   jjdescriptionComment "^JJ:.*"
 
 syn match   jjdescriptionHeader	"\%(^JJ: \)\@<=\S.*:\%(\n^$\)\@!$" contained containedin=jjdescriptionComment
 
