@@ -1,0 +1,4 @@
+# git-crypt managed files — jj doesn't support smudge/clean filters,
+# so it would commit decrypted plaintext without this ignore.
+secrets/**
+hosts/orbstack/kcb.crt
